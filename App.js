@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Video } from 'expo';
+import { createStackNavigator, createAppContainer } from "react-navigation";
+
 
 const images = [
   "https://d301468hdcm00e.cloudfront.net/cce71941eb82ac08759e0f0cd1052eaf_video-file.png",
@@ -114,7 +116,7 @@ const images = [
   "https://d301468hdcm00e.cloudfront.net/e37326aa90fbe10dc5e27df510a7f980_thumbnail-file"
 ]
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -145,3 +147,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: App
+  }
+});
+
+export default createAppContainer(AppNavigator);
