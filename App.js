@@ -125,18 +125,9 @@ class App extends React.Component {
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details')}
         />
-        <Video
-          source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
-          rate={1.0}
-          volume={1.0}
-          isMuted={false}
-          resizeMode="cover"
-          shouldPlay
-          isLooping
-          style={{ width: 300, height: 300 }}
-        />
+        
         {images.map((image,index) => 
-          <Image style={{ width: 1, height: 1}} source={{ uri: image }} />
+          <Image key={index} style={{ width: 1, height: 1}} source={{ uri: image }} />
         )}
       </View>
     );
@@ -156,7 +147,16 @@ class DetailsScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Details Screen</Text>
+        <Video
+          source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+          rate={1.0}
+          volume={1.0}
+          isMuted={false}
+          resizeMode="cover"
+          shouldPlay
+          isLooping
+          style={{ width: 300, height: 300 }}
+        />
       </View>
     );
   }
